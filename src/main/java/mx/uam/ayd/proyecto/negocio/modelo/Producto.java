@@ -25,6 +25,15 @@ public class Producto {
     private int cantidadDisponible;
     private int stockMinimo;
     private LocalDate fechaActualizacion;
+    // se requiere para la HU-1
+    private String nombre;
+    private String descripcion;
+    private double precio;
+    private boolean enOferta;
+    private double precioOferta;
+    private String tipoCorte;
+    private boolean esMenudeo;
+    private boolean esCongelado;
 
     /**
      * Actualiza el stock disponible del producto y la fecha de actualización.
