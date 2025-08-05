@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import mx.uam.ayd.proyecto.datos.GrupoRepository;
 import mx.uam.ayd.proyecto.negocio.modelo.Grupo;
 import mx.uam.ayd.proyecto.presentacion.principal.ControlPrincipal;
-
+import mx.uam.ayd.proyecto.presentacion.pago.ControlPago;
 /**
  * 
  * Clase principal que arranca la aplicación 
@@ -27,11 +27,13 @@ public class ProyectoApplication {
 
 	private final ControlPrincipal controlPrincipal;
 	private final GrupoRepository grupoRepository;
-	
+	private final ControlPago controlPago; // ✅ Inyectamos ControlPago
+
 	@Autowired
-	public ProyectoApplication(ControlPrincipal controlPrincipal, GrupoRepository grupoRepository) {
+	public ProyectoApplication(ControlPrincipal controlPrincipal, GrupoRepository grupoRepository, ControlPago controlPago) {
 		this.controlPrincipal = controlPrincipal;
 		this.grupoRepository = grupoRepository;
+		this.controlPago = controlPago; // Inicializamos el ControlPago
 	}
 
 	/**
@@ -84,6 +86,11 @@ public class ProyectoApplication {
 		// Make sure controllers are created on JavaFX thread
 		Platform.runLater(() -> {
 			controlPrincipal.inicia();
+
+			// ✅ Aquí llamamos a la función de ControlPago cuando lo necesites
+			controlPago.inicia();  // Esto abrirá la ventana de captura de datos de pago
+
+
 		});
 	}
 	

@@ -27,6 +27,7 @@ public class Pago {
     private float monto;
     private LocalDate fechaPago;
     private String estado; // "Pendiente", "Confirmado"
+    private String cliente; //
 
     /**
      * Marca el pago como confirmado.

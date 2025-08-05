@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import mx.uam.ayd.proyecto.presentacion.agregarUsuario.ControlAgregarUsuario;
 import mx.uam.ayd.proyecto.presentacion.listarUsuarios.ControlListarUsuarios;
 import mx.uam.ayd.proyecto.presentacion.listarGrupos.ControlListarGrupos;
+import mx.uam.ayd.proyecto.presentacion.pago.ControlPago;
 
 /**
  * Esta clase lleva el flujo de control de la ventana principal
@@ -22,17 +23,26 @@ public class ControlPrincipal {
 	private final ControlListarUsuarios controlListarUsuarios;
 	private final ControlListarGrupos controlListarGrupos;
 	private final VentanaPrincipal ventana;
-	
+	private final ControlPago controlPago;
+
+
+
 	@Autowired
 	public ControlPrincipal(
 			ControlAgregarUsuario controlAgregarUsuario,
 			ControlListarUsuarios controlListarUsuarios,
 			ControlListarGrupos controlListarGrupos,
-			VentanaPrincipal ventana) {
+			VentanaPrincipal ventana,
+	        ControlPago controlPago) {
+
+
+
+
 		this.controlAgregarUsuario = controlAgregarUsuario;
 		this.controlListarUsuarios = controlListarUsuarios;
 		this.controlListarGrupos = controlListarGrupos;
 		this.ventana = ventana;
+		this.controlPago = controlPago;
 	}
 	
 	/**
@@ -75,4 +85,10 @@ public class ControlPrincipal {
 	public void listarGrupos() {
 		controlListarGrupos.inicia();
 	}
+
+	/**
+	 * Metodo para abrir la hitoria de usuario pago
+	 */
+	public void registrarPago() {controlPago.inicia();}
+
 }
